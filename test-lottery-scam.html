@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Prize Claim - Congratulations!</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, #FFD700, #FFA500);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .container {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.3);
+            padding: 50px 40px;
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+            border: 4px solid #FFD700;
+        }
+        .celebration {
+            font-size: 60px;
+            margin-bottom: 20px;
+            animation: bounce 1s infinite;
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        h1 {
+            color: #e74c3c;
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+        .prize-amount {
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            font-size: 28px;
+            font-weight: bold;
+            margin: 20px 0;
+            box-shadow: 0 5px 15px rgba(255, 165, 0, 0.4);
+        }
+        p {
+            color: #666;
+            margin: 15px 0;
+            line-height: 1.6;
+            font-size: 16px;
+        }
+        .form-group {
+            margin: 20px 0;
+            text-align: left;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: bold;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #FFD700;
+            border-radius: 5px;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+        input:focus, select:focus {
+            outline: none;
+            border-color: #e74c3c;
+            box-shadow: 0 0 10px rgba(231, 76, 60, 0.3);
+        }
+        .requirements {
+            background: #ffe5e5;
+            border: 2px solid #e74c3c;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            color: #c0392b;
+            font-weight: bold;
+        }
+        .bank-details {
+            background: #f0f0f0;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            border-left: 4px solid #e74c3c;
+        }
+        .bank-details h3 {
+            color: #e74c3c;
+            margin-bottom: 10px;
+        }
+        button {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: transform 0.3s;
+        }
+        button:hover {
+            transform: scale(1.02);
+        }
+        .urgency {
+            color: #e74c3c;
+            font-weight: bold;
+            font-size: 14px;
+            margin: 10px 0;
+        }
+        .timer {
+            background: #ffe5e5;
+            color: #e74c3c;
+            padding: 10px;
+            border-radius: 5px;
+            font-weight: bold;
+            margin: 15px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="celebration">🎉🎊🎁</div>
+        
+        <h1>CONGRATULATIONS!</h1>
+        <p style="font-size: 18px; color: #e74c3c; font-weight: bold;">
+            You have been selected as ONE OF OUR LUCKY WINNERS!
+        </p>
+
+        <div class="prize-amount">
+            💰 ₹ 50,00,000
+        </div>
+
+        <p style="font-weight: bold; color: #333;">
+            You have won 50 Lakhs in our Grand Prize Draw!
+        </p>
+
+        <div class="urgency">
+            ⏰ URGENT: This prize claim expires in 24 hours!
+        </div>
+
+        <div class="timer">
+            Time Remaining: <span id="timer">23:59:59</span>
+        </div>
+
+        <div class="requirements">
+            ✓ Processing Fee: ₹5,000 (Compulsory)<br>
+            ✓ Verification Charge: ₹3,000 (Required for claim)<br>
+            ✓ GST: ₹960 (Applicable)<br>
+            <strong>Total: ₹8,960 must be paid via UPI IMMEDIATELY</strong>
+        </div>
+
+        <form onsubmit="return handleSubmit(event)">
+            <div class="form-group">
+                <label>Full Name (As per ID)</label>
+                <input type="text" placeholder="Your full name" required>
+            </div>
+
+            <div class="form-group">
+                <label>Email Address</label>
+                <input type="email" placeholder="your.email@example.com" required>
+            </div>
+
+            <div class="form-group">
+                <label>Mobile Number</label>
+                <input type="tel" placeholder="+91 9876543210" required>
+            </div>
+
+            <div class="form-group">
+                <label>ID Type</label>
+                <select required>
+                    <option value="">Select ID Type</option>
+                    <option value="aadhar">Aadhaar Card</option>
+                    <option value="pan">PAN Card</option>
+                    <option value="passport">Passport</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>ID Number</label>
+                <input type="text" placeholder="Your ID number" required>
+            </div>
+
+            <div class="bank-details">
+                <h3>📱 Send Processing Fee via UPI</h3>
+                <p style="color: #333; font-size: 14px;">
+                    To claim your prize, send ₹8,960 to:
+                </p>
+                <p style="color: #e74c3c; font-weight: bold; font-size: 16px;">
+                    winner.prize@paytm
+                </p>
+                <p style="color: #666; font-size: 12px; margin-top: 10px;">
+                    After payment, your prize will be credited within 24 hours
+                </p>
+            </div>
+
+            <button type="submit">✅ Claim My Prize Now</button>
+        </form>
+
+        <p style="font-size: 11px; color: #999; margin-top: 20px;">
+            This is an automated system. Do not contact lottery organizers directly.
+        </p>
+    </div>
+
+    <script>
+        // Timer countdown
+        let timeLeft = 86399;
+        setInterval(() => {
+            timeLeft--;
+            const hours = Math.floor(timeLeft / 3600);
+            const mins = Math.floor((timeLeft % 3600) / 60);
+            const secs = timeLeft % 60;
+            document.getElementById('timer').textContent = 
+                `${hours.toString().padStart(2, '0')}:${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+        }, 1000);
+
+        function handleSubmit(event) {
+            event.preventDefault();
+            alert('🚨 THIS IS A LOTTERY SCAM PAGE FOR TESTING!\n\nYour extension should have flagged this as HIGH RISK because:\n- Artificial urgency (time limits)\n- Requests for upfront payment\n- No legitimate lottery asks for money\n- Uses personal data harvesting\n- Impersonates authentic platforms');
+            return false;
+        }
+    </script>
+</body>
+</html>

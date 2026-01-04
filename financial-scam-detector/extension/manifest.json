@@ -1,0 +1,46 @@
+{
+  "manifest_version": 3,
+  "name": "Financial Scam Detector",
+  "version": "1.0.0",
+  "description": "AI-powered real-time protection against financial scams, phishing, and UPI fraud",
+  "permissions": [
+    "activeTab",
+    "storage",
+    "webRequest",
+    "tabs",
+    "notifications"
+  ],
+  "host_permissions": [
+    "<all_urls>",
+    "http://localhost:8000/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": [
+        "utils/constants.js",
+        "utils/helpers.js",
+        "detectors/websiteSecurityDetector.js",
+        "detectors/urlPhishingDetector.js",
+        "detectors/financialIntentDetector.js",
+        "detectors/otpMisuseDetector.js",
+        "detectors/upiScamDetector.js",
+        "detectors/riskScoringEngine.js",
+        "content.js"
+      ],
+      "run_at": "document_start"
+    }
+  ],
+  "action": {
+    "default_popup": "popup/popup.html"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["alert.html", "alert.css"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}

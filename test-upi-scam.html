@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UPI Payment Request - Fast Money Transfer</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .container {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            padding: 40px;
+            max-width: 500px;
+            width: 100%;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        .subtitle {
+            color: #e74c3c;
+            text-align: center;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        .warning {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+            color: #856404;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            text-align: center;
+            font-weight: bold;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: bold;
+        }
+        input[type="text"],
+        input[type="number"],
+        select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #667eea;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        input:focus, select:focus {
+            outline: none;
+            border-color: #764ba2;
+            box-shadow: 0 0 10px rgba(118, 75, 162, 0.3);
+        }
+        .upi-field {
+            background: #f0f0f0;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        .upi-id {
+            color: #e74c3c;
+            font-weight: bold;
+            font-size: 16px;
+            text-align: center;
+            padding: 10px;
+            background: #ffe5e5;
+            border-radius: 5px;
+        }
+        button {
+            width: 100%;
+            padding: 15px;
+            background: #e74c3c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background: #c0392b;
+        }
+        .urgency {
+            color: #e74c3c;
+            text-align: center;
+            margin-top: 15px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        .timer {
+            background: #ffe5e5;
+            color: #e74c3c;
+            padding: 10px;
+            text-align: center;
+            border-radius: 5px;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>💰 Quick Money Request</h1>
+        <p class="subtitle">URGENT: Complete Payment NOW</p>
+        
+        <div class="warning">
+            ⚠️ THIS PAYMENT MUST BE COMPLETED WITHIN 1 HOUR ⚠️
+        </div>
+
+        <form onsubmit="return handleSubmit(event)">
+            <div class="form-group">
+                <label>Full Name</label>
+                <input type="text" placeholder="Enter your full name" required>
+            </div>
+
+            <div class="form-group">
+                <label>Amount to Pay (₹)</label>
+                <input type="number" placeholder="5000" value="5000" required>
+            </div>
+
+            <div class="form-group">
+                <label>Your UPI ID</label>
+                <input type="text" placeholder="yourname@upi" required>
+            </div>
+
+            <div class="form-group">
+                <label style="color: #e74c3c; font-weight: bold;">📱 Send Money to This UPI ID:</label>
+                <div class="upi-id">
+                    scammer12345@paytm
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Reason for Payment</label>
+                <select required>
+                    <option value="">Select reason...</option>
+                    <option value="loan">Emergency Loan</option>
+                    <option value="verification">Account Verification</option>
+                    <option value="prize">Prize Claim</option>
+                    <option value="refund">Refund Processing</option>
+                </select>
+            </div>
+
+            <button type="submit">💸 Pay Now via UPI</button>
+        </form>
+
+        <div class="urgency">
+            ⏰ URGENT: DO NOT DELAY!
+        </div>
+        <div class="timer">
+            Time Remaining: <span id="timer">59:59</span>
+        </div>
+    </div>
+
+    <script>
+        // Timer countdown
+        let timeLeft = 3600;
+        setInterval(() => {
+            timeLeft--;
+            const mins = Math.floor(timeLeft / 60);
+            const secs = timeLeft % 60;
+            document.getElementById('timer').textContent = 
+                `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+        }, 1000);
+
+        function handleSubmit(event) {
+            event.preventDefault();
+            alert('This is a SCAM PAGE for testing purposes!\n\nYour extension should have flagged this as HIGH RISK.');
+            return false;
+        }
+    </script>
+</body>
+</html>

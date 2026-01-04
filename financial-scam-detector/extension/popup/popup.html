@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Financial Scam Detector</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header class="header">
+      <div class="logo">
+        <span class="shield-icon">🛡️</span>
+        <h1>Scam Detector</h1>
+      </div>
+    </header>
+
+    <!-- Current Page Status -->
+    <section class="status-section">
+      <h2>Current Page</h2>
+      <div id="page-status" class="status-card">
+        <div class="status-indicator" id="status-indicator">
+          <div class="loading-spinner"></div>
+          <span>Analyzing...</span>
+        </div>
+        <div class="status-details" id="status-details" style="display: none;">
+          <p class="domain" id="current-domain"></p>
+          <div class="risk-badge" id="risk-badge">Low Risk</div>
+          <p class="risk-score" id="risk-score"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quick Stats -->
+    <section class="stats-section">
+      <h2>Protection Stats</h2>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-number" id="blocked-count">0</div>
+          <div class="stat-label">Threats Blocked</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number" id="scanned-count">0</div>
+          <div class="stat-label">Pages Scanned</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Recent Alerts -->
+    <section class="alerts-section">
+      <h2>Recent Alerts</h2>
+      <div id="alerts-list" class="alerts-list">
+        <p class="no-alerts">No alerts yet. You're protected! ✓</p>
+      </div>
+    </section>
+
+    <!-- Settings Toggle -->
+    <section class="settings-section">
+      <h2>Settings</h2>
+      <div class="setting-item">
+        <label>
+          <input type="checkbox" id="toggle-protection" checked>
+          <span>Real-time Protection</span>
+        </label>
+      </div>
+      <div class="setting-item">
+        <label>
+          <input type="checkbox" id="toggle-explanations" checked>
+          <span>Show Detailed Explanations</span>
+        </label>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>Stay safe online 🔒</p>
+    </footer>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
