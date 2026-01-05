@@ -9,6 +9,7 @@ from pydantic import BaseModel
 from typing import Optional, List, Dict
 import uvicorn
 import logging
+import os
 from datetime import datetime
 
 # Detection modules imported lazily to avoid slow startup
@@ -238,10 +239,11 @@ async def check_domain_age(domain: str):
 
 
 if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 8000))
     uvicorn.run(
         "app:app",
         host="0.0.0.0",
-        port=8000,
+        port=port,
         reload=True,
         log_level="info"
     )
